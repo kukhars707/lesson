@@ -5,6 +5,7 @@ import { StoreComponent } from './store/store.component';
 import { CheckoutComponent } from './store/checkout.component';
 import { CartDetailComponent } from './store/cartDetail.component';
 import { RouterModule } from '@angular/router';
+import { StoreFirstGuard } from './storeFirst.guard';
 
 import { AppComponent } from './app.component';
 
@@ -16,12 +17,12 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule, StoreModule,
     RouterModule.forRoot([
-      { path: 'store', component: StoreComponent },
-      { path: 'cart', component: CartDetailComponent },
-      { path: 'checkout', component: CheckoutComponent },
+      { path: 'store', component: StoreComponent, canActivate: [StoreFirstGuard] },
+      { path: 'cart', component: CartDetailComponent, canActivate: [StoreFirstGuard] },
+      { path: 'checkout', component: CheckoutComponent, canActivate: [StoreFirstGuard] },
       { path: '**', redirectTo: '/store' }
     ])],
-  providers: [],
+  providers: [StoreFirstGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
