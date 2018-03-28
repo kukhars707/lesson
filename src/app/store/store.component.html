@@ -10,6 +10,7 @@
           class="btn btn-block btn-outline-primary">
     {{ cat }}
   </button>
+  <button class="btn btn-block btn-danger m-t-3" routerLink="/admin">Admin</button>
 </div>
 <div class="col-xs-9 bg-info p-a-1">
   <div *ngFor="let product of products" class="card card-outline-primary">
@@ -31,7 +32,7 @@
     <select class="form-control" [value]="productsPerPage"
             (change)="changeSize($event.target.value)">
       <option value="3">3 per Page</option>
-      <option value="4">4 per Page</option>
+      <option value="4">4 e Page</option>
       <option value="6">6 per Page</option>
       <option value="8">8  per Page</option>
     </select>

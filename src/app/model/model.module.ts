@@ -9,7 +9,7 @@ import { HttpModule } from '@angular/http';
 
 @NgModule({
   imports: [HttpModule],
-  providers: [ProductRepository, StaticDataSource, Cart,
-              Order, OrderRepository, {provide: StaticDataSource, useClass: RestDatasource}]
+  providers: [ProductRepository, Cart, Order,
+    OrderRepository, {provide: StaticDataSource, useClass: RestDatasource}]
 })
 export class ModelModule { }
